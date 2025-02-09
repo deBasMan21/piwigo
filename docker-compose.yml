@@ -12,8 +12,6 @@ services:
       - piwigo-images-config:/config
       - piwigo-images-gallery:/gallery
     restart: unless-stopped
-    ports:
-      - 8004:80
     networks:
       - nginx
       - piwigo_internal_network
@@ -22,8 +20,6 @@ services:
     container_name: piwigo-database
     image: mariadb:11-ubi
     restart: always
-    ports:
-      - 3306:3306
     environment:
       MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
     volumes:
