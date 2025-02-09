@@ -12,9 +12,16 @@ services:
       - piwigo-images-config:/config
       - piwigo-images-gallery:/gallery
     ports:
-      - 8004:80
+      - 80:80
     restart: unless-stopped
+    networks:
+      - nginx
 
 volumes:
   piwigo-images-config:
   piwigo-images-gallery:
+
+networks:
+  nginx:
+    name: nginxproxymanager_default
+    external: true
