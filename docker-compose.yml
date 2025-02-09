@@ -25,7 +25,7 @@ services:
     environment:
       MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
     volumes:
-      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+      - ./init:/docker-entrypoint-initdb.d/
       - ./my-resolve.cnf:/etc/mysql/conf.d/my-resolve.cnf
     networks:
       - piwigo_internal_network
