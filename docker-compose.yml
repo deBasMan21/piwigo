@@ -12,7 +12,7 @@ services:
       - piwigo-images-config:/config
       - piwigo-images-gallery:/gallery
     ports:
-      - 80:80
+      - 8004:80
     restart: unless-stopped
     networks:
       - nginx
