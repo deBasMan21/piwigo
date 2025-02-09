@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  piwigo:
+    image: lscr.io/linuxserver/piwigo:15.3.0
+    container_name: piwigo
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+      TZ: Europe/Amsterdam
+    volumes:
+      - piwigo-images-config:/config
+      - piwigo-images-gallery:/gallery
+    ports:
+      - 8004:80
+    restart: unless-stopped
+
+volumes:
+  piwigo-images-config:
+  piwigo-images-gallery:
