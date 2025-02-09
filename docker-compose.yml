@@ -20,12 +20,9 @@ services:
     container_name: piwigo-database
     image: mariadb:11-ubi
     restart: always
-    ports:
-      - 4000:3306
     environment:
       MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
     volumes:
-      - ./init:/docker-entrypoint-initdb.d/
       - ./my-resolve.cnf:/etc/mysql/conf.d/my-resolve.cnf
     networks:
       - piwigo_internal_network
